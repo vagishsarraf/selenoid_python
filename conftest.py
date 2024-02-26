@@ -22,8 +22,6 @@ def test_remote(request):
 
 
 def test_local(request):
-    options = webdriver.ChromeOptions()
-    options.add_argument("--headless")
     driver = webdriver.Chrome()
 
     driver.get("https://www.selenium.dev/selenium/web/web-form.html")

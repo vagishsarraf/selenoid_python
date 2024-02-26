@@ -1,0 +1,5 @@
+.pytest_cache
+reports
+xajsenv
+geckodriver.log
+.idea
