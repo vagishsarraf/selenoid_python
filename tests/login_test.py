@@ -2,11 +2,11 @@ from selenium import webdriver
 import pytest
 from pages.loginPage import LoginPage
 from pages.homePage import HomePage
-from utils import  utils as utils
+from utils import utils as utils
 import allure
 import moment
 
-@pytest.mark.usefixtures("test_setup")
+@pytest.mark.usefixtures("test_remote")
 class TestLogin():
 
     def test_login(self):

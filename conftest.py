@@ -1,22 +1,35 @@
 import pytest
-
+from selenium import webdriver
 
 def pytest_addoption(parser):
     parser.addoption("--browser", action="store", default="chrome", help="Type in browser name e.g. chrome OR firefox")
 
-@pytest.fixture(scope="class")
-def test_setup(request):
-    from selenium import webdriver
 
-    browser = request.config.getoption("--browser")
+@pytest.fixture
+def test_remote(request):
+    options = webdriver.ChromeOptions()
+    # options.add_argument("--headless")
+    driver = webdriver.Remote(command_executor="http://localhost:4444/wd/hub", options=options)
 
-    if browser == 'chrome':
-        driver = webdriver.Chrome(
-            executable_path="C:/Users/Administrator/PycharmProjects/AutomationFramework_1/drivers/chromedriver.exe")
-    elif browser == 'firefox':
-        driver = webdriver.Firefox(executable_path="C:/Users/Administrator/PycharmProjects/AutomationFramework_1/drivers/geckodriver.exe")
+    driver.get("https://www.selenium.dev/selenium/web/web-form.html")
 
-    driver.implicitly_wait(5)
+    driver.maximize_window()
+    request.cls.driver = driver
+    yield
+    driver.close()
+    driver.quit()
+    print("Test Completed")
+
+
+def test_local(request):
+    options = webdriver.ChromeOptions()
+    options.add_argument("--headless")
+    driver = webdriver.Chrome()
+
+    driver.get("https://www.selenium.dev/selenium/web/web-form.html")
+
+    # driver.get("https://the-internet.herokuapp.com/upload")
+
     driver.maximize_window()
     request.cls.driver = driver
     yield
