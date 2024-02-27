@@ -1,4 +1,4 @@
 selenium
 pytest
 moment
-allure
+allure-pytest
