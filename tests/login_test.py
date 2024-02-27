@@ -8,7 +8,7 @@ from utils import utils as utils
 import allure
 import moment
 
-@pytest.mark.usefixtures("test_local")
+@pytest.mark.usefixtures("test_remote")
 class TestLogin():
 
     def test_login(self):
