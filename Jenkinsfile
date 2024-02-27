@@ -17,7 +17,9 @@ pipeline {
             }
             }
      stage('Testing'){
+     steps{
         sh 'pytest'
+     }
      }
      stage('Stop docker containers'){
         steps{
