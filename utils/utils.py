@@ -1,7 +1,7 @@
 #CONSTANTS
 import inspect
 
-URL = "https://opensource-demo.orangehrmlive.com/"
+URL = ""
 USERNAME = "Admin"
 PASSWORD = "admin123"
 

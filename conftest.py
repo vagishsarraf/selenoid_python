@@ -21,6 +21,7 @@ def test_remote(request):
     print("Test Completed")
 
 
+@pytest.fixture
 def test_local(request):
     driver = webdriver.Chrome()
 

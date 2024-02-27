@@ -11,10 +11,18 @@ pipeline {
                      sh 'curl http://localhost:8083/#/'
                      }
              }
+     stage('Installing requirements'){
+        steps{
+            sh 'pip install -r requirement.txt'
+            }
+            }
+     stage('Testing'){
+        sh 'pytest'
+     }
      stage('Stop docker containers'){
-     steps{
-     sh 'docker stop $(docker ps -a -q)'
+        steps{
+        sh 'docker stop $(docker ps -a -q)'
+        }
      }
      }
-          }
 }
