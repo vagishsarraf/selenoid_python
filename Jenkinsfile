@@ -18,7 +18,7 @@ pipeline {
             }
      stage('Stop docker containers'){
         steps{
-        sh 'docker stop $(docker ps -a -q)'
+        sh 'docker-compose down -d'
         }
      }
      }
