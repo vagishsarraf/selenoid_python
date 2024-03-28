@@ -12,7 +12,7 @@ services:
       - "./target:/output"
       - "/var/run/docker.sock:/var/run/docker.sock"
       - "./target:/opt/selenoid/video"
-      - "/Users/vagish.saraf/Documents/IntelliJ/SeleniumProject/browser.json:/etc/selenoid/browser.json:rw"
+      - "./config/browser.json:/etc/selenoid/browser.json:rw"
 
     environment:
       - "OVERRIDE_VIDEO_OUTPUT_DIR=$PWD/target"
