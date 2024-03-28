@@ -1,13 +1,6 @@
 pipeline {
     agent any
     stages {
-        stage('build & SonarQube analysis') {
-            steps {
-                withSonarQubeEnv('sonar') {
-                    sh 'sonar-scanner'
-                }
-            }
-        }
         stage('Prepare Selenoid') {
             steps {
                 sh 'docker-compose up -d'
