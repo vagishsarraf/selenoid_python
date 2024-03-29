@@ -13,6 +13,11 @@ pipeline {
         }
         stage(' Code Setup') {
             steps {
+                sh 'sonar-scanner'
+            }
+        }
+        stage(' Code Setup') {
+            steps {
                 sh 'sh execute.sh'
             }
         }
