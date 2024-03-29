@@ -11,7 +11,7 @@ pipeline {
                 sh 'curl http://localhost:8083/#/'
             }
         }
-        stage(' Code Setup') {
+        stage('Sonar Analysis') {
             steps {
                 sh 'sonar-scanner'
             }
